@@ -7,9 +7,6 @@ import { APIError } from 'src/app/core/interfaces/api-error.interface';
 import { ROUTES_URL } from 'src/app/core/constants/routes.constant';
 import { TipoAlertaEnum } from 'src/app/core/enums/tipo-alerta.enum';
 import { ErrorUtil } from 'src/app/core/utils/error.util';
-import * as bcrypt from 'bcryptjs'
-import { EncryptUtil } from 'src/app/core/utils/encrypt.util';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
