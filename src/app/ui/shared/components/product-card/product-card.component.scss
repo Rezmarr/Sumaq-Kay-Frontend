@@ -1,0 +1,11 @@
+a:hover {
+    background-color: var(--color-primary-2);
+}
+
+a:focus {
+    background-color: var(--color-primary-2);
+}
+
+::ng-deep .ant-drawer-footer {
+    border-color: var(--color-disabled) !important;
+}

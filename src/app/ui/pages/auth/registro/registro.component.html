@@ -1,0 +1,59 @@
+<div class="items-center justify-center flex" style="min-height: calc(100vh - 80px);">
+    <div class="flex p-40 items-center justify-center background-inverse br-16 shadow-primary animate__animated animate__fadeIn"
+        style="min-width: 760px; align-self: center;">
+        <form class="flex-column items-start gap-24 w100" [formGroup]="fw.formulario" nz-form (ngSubmit)="onSubmit()">
+            <h5>Bienvenido a Sumaq Kay</h5>
+            <h3 class="text-primary-5">Registrarte</h3>
+            <div class="w100 flex-column gap-8">
+
+                <nz-form-item>
+                    <nz-form-control [nzErrorTip]="fw.getErrorMessage('nombre', 'Nombre')"
+                        [nzValidateStatus]="fw.getValidateStatus('nombre')">
+                        <input type="text" nz-input nzSize="large" formControlName="nombre"
+                            placeholder="Nombre" />
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-control [nzErrorTip]="fw.getErrorMessage('apellidoPaterno', 'Apellido paterno')"
+                        [nzValidateStatus]="fw.getValidateStatus('apellidoPaterno')">
+                        <input type="text" nz-input nzSize="large" formControlName="apellidoPaterno"
+                            placeholder="Apellido paterno" />
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-control [nzErrorTip]="fw.getErrorMessage('apellidoMaterno', 'Apellido materno')"
+                        [nzValidateStatus]="fw.getValidateStatus('apellidoMaterno')">
+                        <input type="text" nz-input nzSize="large" formControlName="apellidoMaterno"
+                            placeholder="Apellido materno" />
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-control [nzErrorTip]="fw.getErrorMessage('email', 'Correo')"
+                        [nzValidateStatus]="fw.getValidateStatus('email')">
+                        <input type="text" nz-input nzSize="large" formControlName="email"
+                            placeholder="Correo electrónico" />
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-control [nzErrorTip]="fw.getErrorMessage('password', 'Contraseña')"
+                        [nzValidateStatus]="fw.getValidateStatus('password')">
+                        <nz-input-group nzSize="large">
+                            <input type="password" nz-input nzSize="large" formControlName="password"
+                                placeholder="Contraseña" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <button nz-button nzType="primary" nzSize="large" [nzLoading]="fw.enviandoFormulario"
+                class="flex items-center gap-8 br-16 background-primary-2"
+                style="padding-left: 40px; padding-right: 40px; min-height: 46px">
+                Regístrate
+                <span azui-icons name="iniciar-sesion"></span>
+            </button>
+        </form>
+    </div>
+</div>

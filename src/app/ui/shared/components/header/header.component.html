@@ -1,0 +1,87 @@
+<header class="flex items-center justify-space-between flex-wrap px-24 background-inverse"
+    style="height: 80px; z-index: 1000;">
+    <a class="flex items-center justify-center" [routerLink]="RUTAS.inicio">
+        <img src="assets/logo.png" alt="logo" style="height: 60px;">
+    </a>
+    <div class="flex items-center gap-8">
+        <a nz-button nzType="text" nzSize="large" routerLink="/"
+            class="text-bold pointer flex items-center justify-center br-16 item">Inicio</a>
+        <!-- <a nz-button nzType="text" nzSize="large" routerLink="/products" class="text-bold pointer p-24 br-16 item flex items-center justify-center">Productos</a>
+        <a nz-button nzType="text" nzSize="large" routerLink="/cart" class="text-bold pointer p-24 br-16 item flex items-center justify-center">Carrito</a>
+        <a nz-button nzType="text" nzSize="large" routerLink="/orders" class="text-bold pointer p-24 br-16 item flex items-center justify-center">Pedidos</a> -->
+        <button nz-button nzType="text" nzSize="large" (click)="abrirCarrito()"
+            class="pointer p-24 br-16 item flex items-center justify-center" style="border-radius: 16px;">
+            <div
+                style="width: 24px; border-radius: 20%; background-color: var(--color-primary-2); position: absolute; bottom: 0px; right: 0px;">
+                <span class="text-inverse text-description">{{carritoService.totalProductos}}</span>
+            </div>
+            <span nz-icon nzType="shopping-cart" nzTheme="outline"></span>
+        </button>
+
+        <a nz-button nzType="text" nzSize="large" routerLink="/auth/login"
+            class="text-bold pointer p-24 br-16 item flex items-center justify-center"
+            *ngIf="!authService.existeSesion()">
+            <span nz-icon nzType="login" nzTheme="outline"></span>
+            Iniciar sesión
+        </a>
+
+        <a nz-button nzType="text" nzSize="large" routerLink="/auth/registro"
+            class="text-bold pointer p-24 br-16 item flex items-center justify-center"
+            *ngIf="!authService.existeSesion()">
+            Registrarse
+        </a>
+
+        <button nz-button nzType="text" nzSize="large"
+            class="text-bold pointer p-24 br-16 item flex items-center justify-center"
+            *ngIf="authService.existeSesion()" nz-popover [(nzPopoverVisible)]="estaAbiertoCerrarSesion"
+            nzPopoverTrigger="click" [nzPopoverContent]="contentTemplate">
+            <span nz-icon nzType="user" nzTheme="outline"></span>
+            {{authService.usuario.nombre}} {{authService.usuario.apellidoPaterno}}
+        </button>
+    </div>
+</header>
+
+<nz-drawer [nzClosable]="false" [nzVisible]="carritoAbierto" nzPlacement="right" (nzOnClose)="cerrarCarrito()"
+    [nzFooter]="carritoService.carrito.length > 0 ? nzDrawerFooter : ''">
+    <ng-container *nzDrawerContent>
+        <div class="flex-column p-24 gap-16 expanded">
+            <h1 class="text-bold">Tu cesta</h1>
+            <div *ngFor="let producto of carritoService.carrito">
+                <div class="flex items-center gap-16 border-primary-1 br-16 p-12">
+                    <img [src]="producto.producto.fotoUrl" alt="foto_producto" height="80" class="br-16"
+                        style="object-fit: cover;">
+                    <div class="flex-column">
+                        <p class="text-bold">{{producto.producto.nombre}}</p>
+                        <p>Cantidad: {{producto.cantidad}}</p>
+                        <p>Precio total: S/ {{producto.precioTotal}}</p>
+                    </div>
+                    <span nz-icon nzType="close" nzTheme="outline" class="pointer text-primary-3 p-8 br-16 eliminarProducto item-self-start"
+                        (click)="carritoService.eliminarProducto(producto.producto.publicKey)"></span>
+                </div>
+            </div>
+            <div *ngIf="carritoService.carrito.length === 0" class="expanded flex-column items-center justify-center gap-24 animate__animated animate__fadeIn">
+                <h5 class="text-bold text-disabled">No hay productos en tu cesta</h5>
+                <img src="assets/empty.svg" alt="carrito_vacio" height="200px" style="opacity: 50%;">
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #nzDrawerFooter>
+        <div class="px-24 flex items-center gap-8">
+            <div class="flex-column gap-8 w100">
+                <a nz-button nzType="primary" nzSize="large" [routerLink]="RUTAS.checkout" (click)="cerrarCarrito()"
+                    id="irAPagar"
+                    class="flex background-primary-2 text-inverse br-16 gap-8 items-center justify-center">Ir a
+                    pagar
+                </a>
+            </div>
+        </div>
+    </ng-template>
+</nz-drawer>
+
+<ng-template #contentTemplate>
+    <div class="flex items-center justify-center p-24">
+        <button id="cerrarSesion" nz-button nzType="primary" nzSize="large" (click)="handleOcultarCerrarSesion()"
+            class="flex background-primary-2 text-inverse br-16 gap-8 items-center justify-center">Cerrar
+            sesión</button>
+    </div>
+</ng-template>

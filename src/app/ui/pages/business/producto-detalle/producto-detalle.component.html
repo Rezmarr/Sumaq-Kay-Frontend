@@ -1,0 +1,30 @@
+<div class="items-center justify-center flex animate__animated animate__fadeIn" style="min-height: calc(100vh - 80px);">
+    <article class="flex br-16 items-center justify-center" style="max-width: 1256px; margin-top: 40px;" *ngIf="producto">
+        <section style="flex: 1 1 auto;" class="w100">
+            <img [src]="producto.fotoUrl" alt="foto_producto" height="600">
+        </section>
+        <section style="flex: 1 1 auto;" class="flex-column gap-16 p-24 w100">
+            <h5 class="text-bold">{{producto.nombre}}</h5>
+            <p class="text-subordinate">{{producto.stock}} unidades disponibles</p>
+            <h5 class="text-subordinate">S/. {{producto.precio}}</h5>
+            <div class="w100 background-disabled" style="height: 1px;"></div>
+            <p>{{producto.descripcion}}</p>
+            <p>Tamaño:</p>
+            <div class="flex gap-8 w100">
+                <nz-radio-group [formControl]="productoForm.controls.talla">
+                    <label nz-radio-button nzValue="S">S</label>
+                    <label nz-radio-button nzValue="M">M</label>
+                    <label nz-radio-button nzValue="L">L</label>
+                    <label nz-radio-button nzValue="XL">XL</label>
+                </nz-radio-group>
+            </div>
+
+            <div class="flex gap-8 items-center">
+                <p>Cantidad:</p>
+                <nz-input-number nzBorderless class="border-primary-2" [formControl]="productoForm.controls.cantidad"></nz-input-number>
+            </div>
+            <button nz-button nzType="primary" nzSize="large" class="background-primary-2 text-inverse br-16" (click)="agregarProductoCarrito()">Agregar al
+                carrito</button>
+        </section>
+    </article>
+</div>

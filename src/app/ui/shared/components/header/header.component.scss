@@ -1,0 +1,43 @@
+.item {
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.item:hover {
+    background-color: #f0efef;
+    transition: all 0.3s ease-in-out;
+}
+
+#cerrarSesion:hover {
+    background-color: var(--color-primary-2);
+}
+
+#cerrarSesion:focus {
+    background-color: var(--color-primary-2);
+}
+
+::ng-deep .ant-popover-inner {
+    border-radius: 16px;
+}
+
+::ng-deep .ant-drawer-footer {
+    border-color: var(--color-disabled) !important;
+}	
+
+#irAPagar:hover {
+    background-color: var(--color-primary-2);
+}
+
+#irAPagar:focus {
+    background-color: var(--color-primary-2);
+}
+
+.eliminarProducto {
+    background-color: transparent;
+    transition: all 0.1s ease-in-out;
+}
+
+.eliminarProducto:hover {
+    background-color: var(--color-primary-1);
+    transition: all 0.1s ease-in-out;
+}

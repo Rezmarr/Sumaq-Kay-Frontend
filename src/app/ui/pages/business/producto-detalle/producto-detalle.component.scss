@@ -1,0 +1,23 @@
+button:hover {
+    background-color: var(--color-primary-2);
+}
+
+button:focus {
+    background-color: var(--color-primary-2);
+}
+
+::ng-deep .ant-radio-button-wrapper-checked {
+    background-color: var(--color-primary-2) !important;
+    border-color: var(--color-primary-2) !important;
+    color: var(--color-inverse) !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+::ng-deep .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
+    display: none !important;
+}
+
+::ng-deep .ant-radio-button-wrapper:hover {
+    color: var(--color-primary-2) !important;
+}

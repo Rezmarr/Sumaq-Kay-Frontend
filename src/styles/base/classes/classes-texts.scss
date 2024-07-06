@@ -1,0 +1,48 @@
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  white-space: nowrap;
+}
+
+.text-bold{
+  font-weight: bold;
+}
+
+.text-description{
+  font-size: 12px;
+  line-height: 140%;
+}
+
+.text-regular{
+  font-weight: 400;
+}
+
+.text-medium{
+  font-weight: 500;
+}
+
+.text-wrap{
+  text-wrap: wrap;
+  overflow-wrap: break-word;
+  line-break: auto;
+}
+
+
+@media only screen and (max-width: 982px) {
+  .text-center-mobile{
+    text-align: center;
+  }
+}

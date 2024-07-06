@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@use "styles/base/resets/reset-ng-zorro.scss";
+@use "styles/base/classes/classes-border-radius.scss";
+@use "styles/base/classes/classes-paddings.scss";
+@use "styles/base/classes/classes-flex.scss";
+@use "styles/base/classes/classes-layouts.scss";
+@use "styles/base/classes/classes-texts.scss";
+@use "styles/base/classes/classes-colors.scss";
+@use "styles/general/general.scss";

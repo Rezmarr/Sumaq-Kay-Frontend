@@ -1,0 +1,76 @@
+@use '../tokens/tokens-spacing.scss' as tSpacing;
+@use '../tokens/tokens-colors.scss' as tColors;
+
+:root {
+  --color-primary-1: #{tColors.$color-primary-1};
+  --color-primary-3: #{tColors.$color-primary-3};
+  --color-primary-2: #{tColors.$color-primary-2};
+  --color-success-soft: #{tColors.$color-success-soft};
+  --color-success-medium: #{tColors.$color-success-medium};
+  --color-base: #{tColors.$color-base};
+  --color-subordinate: #{tColors.$color-subordinate};
+  --color-disabled: #{tColors.$color-disabled};
+  --color-inverse: #{tColors.$color-inverse};
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Istok Web', sans-serif;
+  overflow-x: hidden;
+  color: var(--color-base);
+  margin: 0;
+  padding: 0;
+}
+
+ul{
+  padding-left: 8px;
+  margin: 0;
+  list-style-position: inside;
+}
+
+.max-width{
+  max-width: 1484px;
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 36px;
+  line-height: 140%;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 27px;
+  line-height: 140%;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 21px;
+  line-height: 140%;
+  font-weight: 500;
+}
+
+.shadow-primary {
+  box-shadow: 0 0 24px rgba(238, 104, 104, 0.12);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.not-allowed{
+  cursor: not-allowed;
+}
+
+.no-border {
+  border: none;
+}

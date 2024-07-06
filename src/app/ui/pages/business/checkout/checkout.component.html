@@ -1,0 +1,95 @@
+<div class="items-center justify-center flex animate__animated animate__fadeIn" style="min-height: calc(100vh - 80px);">
+    <article class="flex br-16 items-center justify-center gap-40" style="width: 1256px; margin-top: 40px;">
+        <section style="flex: 1 1 auto;" class="w100">
+            <form class="w100 flex-column gap-24" [formGroup]="fw.formulario" nz-form (ngSubmit)="onSubmit()">
+                <h4 class="text-bold">Información de envío</h4>
+                <div class="flex-column">
+                    <nz-form-item>
+                        <nz-form-control [nzErrorTip]="fw.getErrorMessage('direccion', '')"
+                        [nzValidateStatus]="fw.getValidateStatus('direccion')">
+                            <input nz-input nzSize="large" type="text" placeholder="Dirección de envío" formControlName="direccion">
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-control [nzErrorTip]="fw.getErrorMessage('telefono', '')"
+                        [nzValidateStatus]="fw.getValidateStatus('telefono')">
+                            <input nz-input nzSize="large" type="number" placeholder="Número de contacto" formControlName="telefono">
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+                <div class="w100 background-disabled" style="height: 1px;"></div>
+
+                <div class="flex items-center justify-space-between gap-8">
+                    <h4 class="text-bold">Paga con</h4>
+                    <div class="flex gap-16 items-center">
+                        <img src="assets/logo_mastercard.svg" alt="logo_mastercard" height="15">
+                        <img src="assets/logo_visa.svg" alt="logo_visa" height="15">
+                    </div>
+                </div>
+                <div class="flex-column">
+                    <nz-form-item>
+                        <nz-form-control>
+                            <input nz-input nzSize="large" type="text" placeholder="Nombre en la tarjeta">
+                        </nz-form-control>
+                    </nz-form-item>
+                    <div class="flex gap-24 items-center w100">
+                        <div class="flex-column gap-8 w100" style="flex: 2 1 auto;">
+                            <nz-form-item>
+                                <nz-form-control>
+                                    <input nz-input nzSize="large" type="text" placeholder="Número de tarjeta">
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div class="flex-column gap-8 w100" style="flex: 0 2 auto;">
+                            <nz-form-item>
+                                <nz-form-control>
+                                    <input nz-input nzSize="large" type="text" placeholder="MM/AA">
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div class="flex-column gap-8 w100" style="flex: 0 2 auto;">
+                            <nz-form-item>
+                                <nz-form-control>
+                                    <input nz-input nzSize="large" type="text" placeholder="CVV">
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                    </div>
+                </div>
+                <button nz-button nzType="primary" nzSize="large" [nzLoading]="fw.enviandoFormulario"
+                    class="text-bold br-16 background-primary-2">Pagar</button>
+            </form>
+        </section>
+        <section style="flex: 1 1 800px;" class="flex-column item-self-start">
+            <h5 class="text-bold">Resumen de compra ({{carritoService.totalProductos}})</h5>
+            <div class="w100 background-disabled" style="height: 1px;"></div>
+            <div class="flex-column gap-16 pt-24" style="max-height: 439px; overflow-y: auto;">
+                <div class="flex gap-16 items-center p-16 border-primary-1 br-16"
+                    *ngFor="let producto of carritoService.carrito">
+                    <img [src]="producto.producto.fotoUrl" alt="foto_producto" height="80" style="border-radius: 8px;">
+                    <div class="flex-column">
+                        <p class="text-bold">{{producto.producto.nombre}}</p>
+                        <p>Cantidad: {{producto.cantidad}}</p>
+                        <p>Precio total: S/ {{producto.producto.precio}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-column gap-8 p-24">
+                <div class="flex justify-space-between">
+                    <p class="text-bold">Subtotal:</p>
+                    <p>S/ {{carritoService.totalPrecio | number: '1.2'}}</p>
+                </div>
+                <div class="flex justify-space-between">
+                    <p class="text-bold">Envío:</p>
+                    <p>S/ {{carritoService.totalProductos * 10 | number: '1.2'}}</p>
+                </div>
+                <div class="flex justify-space-between">
+                    <h1 class="text-bold">Total:</h1>
+                    <h1 class="text-bold">S/ {{carritoService.totalPrecio + carritoService.totalProductos * 10 | number: '1.2'}}</h1>
+                </div>
+            </div>
+        </section>
+    </article>
+</div>

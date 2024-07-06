@@ -1,0 +1,109 @@
+@use '../../tokens/tokens-spacing.scss' as tSpacings;
+
+@mixin gap-classes($name, $gapSize) {
+  .gap-#{$name} {
+    gap: $gapSize;
+  }
+  .row-gap-#{$name} {
+    row-gap: $gapSize;
+  }
+  .col-gap-#{$name} {
+    column-gap: $gapSize;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.item-self-start {
+  align-self: flex-start;
+}
+
+.item-self-center {
+  align-self: center;
+}
+
+.item-self-end {
+  align-self: flex-end;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.expanded {
+  flex: 1 1;
+}
+
+.expanded-scrollable-x {
+  flex: 1 1 auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 0;
+}
+
+.expanded-scrollable-y {
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 0;
+}
+
+@media only screen and (max-width: 982px) {
+  .items-center-mobile {
+    align-items: center;
+  }
+  .item-self-stretch-mobile {
+    align-self: stretch;
+  }
+  .item-self-center-mobile {
+    align-self: center;
+  }
+  .justify-center-mobile {
+    justify-content: center;
+  }
+}
+
+@include gap-classes('8', tSpacings.$spacing8);
+@include gap-classes('12', tSpacings.$spacing12);
+@include gap-classes('16', tSpacings.$spacing16);
+@include gap-classes('24', tSpacings.$spacing24);
+@include gap-classes('40', tSpacings.$spacing40);

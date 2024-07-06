@@ -1,0 +1,24 @@
+<div class="h100 background-inverse" style="position: relative;">
+    <app-header class="w100 animate__animated animate__fadeIn shadow-primary"
+        style="position: fixed; top: 0; z-index: 10; left: 0; height: 80px;"></app-header>
+        <div style="min-height: 80px"></div>
+    <div *ngIf="cargandoRuta; then cargandoRutaTemplate; else rutaCargadaTemplate"></div>
+
+    <ng-template #cargandoRutaTemplate>
+        <div class="w100-screen h100-screen flex">
+            <!-- <h1>Cargando...</h1> -->
+        </div>
+    </ng-template>
+
+    <ng-template #rutaCargadaTemplate>
+        <main class="background-inverse" style="min-height: calc(100vh - 80px);">
+            <router-outlet #outlet="outlet"></router-outlet>
+        </main>
+    </ng-template>
+
+    <!-- <ng-template #mensajeAlerta>
+    <azui-message
+      [tipoRespuesta]="mensaje!.tipoRespuesta"
+      [descripcion]="mensaje!.mensaje"
+    ></azui-message>
+  </ng-template> -->

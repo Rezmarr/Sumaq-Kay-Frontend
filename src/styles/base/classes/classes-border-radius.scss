@@ -1,0 +1,31 @@
+@use '../../tokens/tokens-spacing.scss' as tSpacings;
+
+@mixin padding-classes($name, $paddingSize) {
+  .br-#{$name} {
+    border-radius: $paddingSize;
+  }
+  .br-tl-#{$name} {
+    border-top-left-radius: $paddingSize;
+  }
+  .br-tr-#{$name} {
+    border-top-right-radius: $paddingSize;
+  }
+  .br-bl-#{$name} {
+    border-bottom-left-radius: $paddingSize;
+  }
+  .br-br-#{$name} {
+    border-bottom-right-radius: $paddingSize;
+  }
+}
+
+@media only screen and (max-width: 982px) {
+  .br-0-mobile {
+    border-radius: 0 !important;
+  }
+}
+
+@include padding-classes('8', tSpacings.$spacing8);
+@include padding-classes('12', tSpacings.$spacing12);
+@include padding-classes('16', tSpacings.$spacing16);
+@include padding-classes('24', tSpacings.$spacing24);
+@include padding-classes('40', tSpacings.$spacing40);

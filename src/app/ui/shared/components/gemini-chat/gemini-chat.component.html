@@ -1,0 +1,43 @@
+<div style="position: fixed; width: 60px; height: 60px; border-radius: 50%; bottom: 30px; right: 30px;"
+    class="background-primary-2 flex items-center justify-center pointer" *ngIf="!estaAbierto" (click)="abrirChat()">
+    <span nz-icon nzType="message" nzTheme="outline" class="text-inverse" style="font-size: 24px;"></span>
+</div>
+
+<div class="flex-column br-16 shadow-primary background-inverse"
+    style="width: 400px; height: 500px; overflow: hidden;" *ngIf="estaAbierto">
+
+    <head class="background-primary-2 flex items-center justify-space-between p-16">
+        <img src="assets/isotipo.png" alt="isotipo" height="30">
+        <span nz-icon nzType="close" nzTheme="outline" class="pointer text-inverse" (click)="cerrarChat()"></span>
+    </head>
+    <section class="flex-column expanded-scrollable-y p-12 gap-12">
+        <div #scrollTarget class="flex-column gap-8 animate__animated animate__fadeIn" *ngFor="let msg of chatBot.mensajes" [style]="msg.tipo === 'bot' ? 'align-items: flex-start' : 'align-items: flex-end'">
+            <p class="p-12 br-16 border-primary-1 flex" style="max-width: 300px;">
+                {{msg.mensaje}}
+            </p>
+            <ng-container *ngIf="msg.recomendaciones">
+                <a class="flex gap-8 items-center p-12 br-16 border-primary-1 pointer text-base" *ngFor="let rec of msg.recomendaciones" [routerLink]="rec.urlDetalle">
+                    <img [src]="rec.fotoUrl" alt="foto_producto" height="60px" style="object-fit: cover; border-radius: 4px;">
+                    <div class="flex-column">
+                        <p class="text-bold">{{rec.nombre}}</p>
+                        <p>S/ {{rec.precio}}</p>
+                    </div>
+                </a>
+            </ng-container>
+        </div>
+        <p class="p-12 br-16 animate__animated animate__fadeIn flex gap-8" style="align-self: flex-start"
+            *ngIf="chatBot.estaEscribiendoMensaje" id="escribiendo">
+            <span></span>
+            <span></span>
+            <span></span>
+        </p>
+    </section>
+    <footer>
+        <div class="flex items-center gap-8 w100 p-8" style="border-top: 1px solid var(--color-disabled);">
+            <input nz-input type="text" nzBorderless="" placeholder="Escribe tu consulta" [(ngModel)]="mensaje"
+                (keyup.enter)="enviarMensaje()">
+            <span nz-icon nzType="send" nzTheme="outline" class="p-8 pointer br-16" id="enviar"
+                (click)="enviarMensaje()"></span>
+        </div>
+    </footer>
+</div>

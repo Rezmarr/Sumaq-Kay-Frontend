@@ -1,0 +1,25 @@
+<div class="flex flex-column w100 gap-40 items-center justify-center animate__animated animate__fadeIn">
+    <article class="flex-column gap-24 br-16 border-primary-1 items-center justify-center shadow-primary" id="header"
+        style="min-width: 1256px; height: 400px; margin-top: 40px;">
+        <h2 class="text-inverse text-center" style="max-width: 600px;">Explora nuestra colección y siente el orgullo de
+            nuestras raíces en cada pieza</h2>
+        <button nz-button nzType="primary" nzSize="large" class="background-inverse text-primary-2 br-16">Ver
+            más</button>
+    </article>
+    <section class="flex flex-wrap gap-40" style="max-width: 1256px; margin-bottom: 40px;">
+        <div class="flex flex-column items-center justify-center gap-16">
+            <h1 class="text-primary-2 text-bold">Revalorizando nuestra cultura a través del textil</h1>
+            <p class="text-primary-2 text-center text-medium">En SUMAQ KAY, creemos que la identidad cultural de un pueblo es la esencia que nos
+                define y conecta con nuestras raíces. Nos dedicamos a rescatar y promover la riqueza de nuestra herencia
+                textil peruana, ofreciendo productos que representan lo mejor de nuestra tradición
+                artesanal.</p>
+        </div>
+
+        <section class="flex flex-wrap gap-40 items-center justify-center w100">
+            <app-product-card *ngFor="let producto of productos" [producto]="producto"></app-product-card>
+            <!-- <app-product-card *ngFor="let a of [1, 1, 1, 1, 1, 1, 1, 1]"></app-product-card> -->
+        </section>
+    </section>
+
+    <app-gemini-chat style="position: fixed; bottom: 30px; right: 30px;"></app-gemini-chat>
+</div>

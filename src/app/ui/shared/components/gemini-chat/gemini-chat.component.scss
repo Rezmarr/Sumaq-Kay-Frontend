@@ -1,0 +1,53 @@
+a:hover {
+    text-decoration: none;
+    color: var(--color-base);
+}
+
+#enviar {
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+#enviar:hover {
+    background-color: #f0efef;
+    transition: all 0.3s ease-in-out;
+}
+
+$dot-width: 6px;
+$dot-color: var(--color-primary-3);
+$speed: 1.5s;
+
+#escribiendo {
+    span {
+        content: '';
+        animation: blink $speed infinite;
+        animation-fill-mode: both;
+        height: $dot-width;
+        width: $dot-width;
+        background: $dot-color;
+        border-radius: 50%;
+
+        &:nth-child(2) {
+            animation-delay: .2s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: .4s;
+        }
+    }
+}
+
+
+@keyframes blink {
+    0% {
+        opacity: .1;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: .1;
+    }
+}

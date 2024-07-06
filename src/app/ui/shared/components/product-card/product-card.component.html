@@ -1,0 +1,13 @@
+<div class="flex-column gap-8 items-center justify-center shadow-primary br-16">
+    <img [src]="producto.fotoUrl" alt="producto_imagen"
+        style="border-radius: 16px 16px 0 0; width: 280px; height: 360px; object-fit: cover;">
+    <div class="flex-column gap-8 w100 p-16">
+        <h1 class="text-primary-2 text-bold">{{producto.nombre}}</h1>
+        <p class="text-primary-2 text-bold">S/ {{producto.precio}}</p>
+        <a nz-button nzType="primary" nzSize="large" [routerLink]="urlProcesado"
+            class="flex background-primary-2 text-inverse br-16 gap-8 items-center justify-center">
+            Ver detalle
+        </a>
+    </div>
+
+</div>

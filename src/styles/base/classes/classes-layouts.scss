@@ -1,0 +1,44 @@
+.w50 {
+  width: 50%;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.w100-screen {
+  width: 100vw;
+}
+
+.h100-screen {
+  height: 100vh;
+}
+
+.min-h100 {
+  min-height: 100%;
+}
+
+.min-h100-screen {
+  min-height: 100vh;
+}
+
+.show-mobile {
+  display: block;
+}
+
+.hide-mobile {
+  display: none;
+}
+
+@media only screen and (min-width: 983px) {
+  .show-mobile {
+    display: none;
+  }
+  .hide-mobile {
+    display: block;
+  }
+}
