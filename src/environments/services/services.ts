@@ -1,7 +1,7 @@
 export const SERVICES = Object.freeze({
     apiGateway: {
       // url: 'http://localhost:3000/api-gateway',
-      url: 'https://sumaq-kay-api.vercel.app/api-gateway'
+      url: 'https://bwcc3s3c-3000.brs.devtunnels.ms/api-gateway'
     },
     frontend: {
       // url: 'http://localhost:4200/#',
