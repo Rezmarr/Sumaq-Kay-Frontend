@@ -81,6 +81,8 @@ export class CheckoutComponent extends APIService implements OnInit {
 
       this.ventaPublicKey = response.data;
 
+      this.carritoService.vaciarCarrito();
+
     } catch (error) {
       this.fw.hasErrorFromAPI = true;
       this.fw.errorMessageFromAPI = ErrorUtil.getApiErrorMessage(error);
